@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
 import { useCart } from 'react-use-cart';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
+import {BsCartPlus} from "react-icons/bs"
 
 
 const ProductCard = (props) => {
@@ -19,9 +20,16 @@ const addTodoCart = ()=>{
 `   ${theme? "bg-light-black text-light": "bg-light text-black "} text-center p-0 overflow-hidden shadow mx-auto mb-4`
     }  /* fotolar arasindaki bosluk ve ternary ile renk degisimini yaptik */
     >
+        <div style={{background : "white" , height:"15rem" , overflow: "hidden" , display:"flex",
+    justifyContent:"center",alignItems:"center" , marginBottom:"inherit"
+    }}> 
+        <div style={{width:"9rem"}}> 
+<Card.Img variant='top' src={image} className="img-fluid" />
+        </div> {/* divler arasinda resimleri iki sekilde gosterdik biri aciklamali digeri duz resim */}
+        </div>
     <Card.Img variant="top" src={image}/>
     <Card.Body>
-      <Card.Title>
+      <Card.Title style={{textOverflow: "ellipsis" ,overflow:"hidden" ,whiteSpace:"nowrap"}}>
         {title}
       </Card.Title>
 
@@ -29,7 +37,13 @@ const addTodoCart = ()=>{
      Rs. <span className='h3' >{price}  </span>
       </Card.Title>
      
-      <Button variant="primary">Go somewhere</Button>
+      <Button 
+      onClick={()=> addTodoCart()}
+      className={` ${theme? "bg-dark-primary text-black" : "bg-light-primary"} d-flex align-item-center  m-auto  border-0 `}
+      >
+        <BsCartPlus size="1.8rem"/>
+        
+        Add to Card </Button>
     </Card.Body>
   </Card>
   )

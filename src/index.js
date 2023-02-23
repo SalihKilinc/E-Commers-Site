@@ -1,17 +1,20 @@
-import React, { StrictMode } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { render } from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/scss/bootstrap.scss";
 import { ThemeProvider } from './GlobalComponents/ThemeProvider';
+import { CartProvider } from 'react-use-cart';
 // import "bootstrap"; Bu import eğer bootstrap static olarak kullanılacaksa Javascript i etkinleştirmek için kullanılmalıdır. Dinamik yapıda buna gerek yoktur.
 
 //const root = ReactDOM.createRoot(document.getElementById('root'));
 render(
     <React.StrictMode>
     <ThemeProvider>  
- <App/>
+        <CartProvider> <App/>
+          </CartProvider>
+
 
     </ThemeProvider>
     </React.StrictMode>   // alt ogeleri kontrol eder ve uyarilari etkin hale getirir 
