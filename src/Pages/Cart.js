@@ -38,16 +38,17 @@ const Cart = () => {
                     </div>
                   </td>
                   <td>
-                    <h6 style={{whiteSpace: "nowrap" , width:"14rem" , overflow:"hidden" , textOverflow:"ellipsis"}}>
+                    <h6 style={{ whiteSpace: "nowrap", width: "14rem", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {item.title}
                     </h6>
                   </td>
                   <td> Rs. {item.price}</td>
                   <td>Quantity ({item.quantity})</td>
                   <td>
-                    <Button >
+                    <Button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} className="ms-2"> - </Button>
+                    <Button onClick={() => updateItemQuantity(item.id, item.quantity + 1)} className="ms-2"> + </Button>
+                    <Button variant='danger' onClick={()=>removeItem(item.id)} className="ms-2">RemoveItem</Button>
 
-                    </Button>
                   </td>
                 </tr>
               )
